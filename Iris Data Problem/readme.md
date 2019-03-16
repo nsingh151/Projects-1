@@ -10,3 +10,10 @@ The dataset contains a set of 150 records under 5 attributes - Petal Length, Pet
 
 ## Acknowledgements
 This dataset is free and is publicly available at the UCI Machine Learning Repository
+
+## ML Algorithm used in prediction
+
+1. SGD Classifier
+2. SCV Classifier
+3. K Nearest Neighbour
+4. Ensemble Classifier
