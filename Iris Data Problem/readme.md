@@ -20,5 +20,5 @@ This dataset is free and is publicly available at the UCI Machine Learning Repos
 
 ## A final histogram to compare Score of each Algorithm
 
-![](https://github.com/navjotsingh151/Projects/Iris%20Data%20Problem/Iris_algo_score.PNG)
+![hist](https://github.com/navjotsingh151/Projects/Iris%20Data%20Problem/Iris_algo_score.PNG)
 
