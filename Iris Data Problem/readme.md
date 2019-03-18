@@ -22,3 +22,4 @@ This dataset is free and is publicly available at the UCI Machine Learning Repos
 
 ![hist](https://github.com/navjotsingh151/Projects/blob/master/Iris%20Data%20Problem/Iris_algo_score.PNG)
 
+## Checkout Code for more details
