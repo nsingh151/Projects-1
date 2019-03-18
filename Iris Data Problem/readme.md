@@ -17,3 +17,6 @@ This dataset is free and is publicly available at the UCI Machine Learning Repos
 2. SCV Classifier
 3. K Nearest Neighbour
 4. Ensemble Classifier
+
+## A final histogram to compare Score of each Algorithm
+
