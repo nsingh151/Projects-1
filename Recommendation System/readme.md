@@ -12,3 +12,5 @@ Before we deep dive into this topic, first we’ll think of how we can recommend
 ## Content based filtering
 This algorithm recommends products which are similar to the ones that a user has liked in the past.
 
+()[https://github.com/navjotsingh151/Projects/blob/master/Recommendation%20System/Images/Content%20Based%20Filtering.PNG]
+
