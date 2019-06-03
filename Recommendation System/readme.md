@@ -93,7 +93,7 @@ Here we have a user movie rating matrix. To understand this in a more practical 
 
 The correlation between user A and C is more than the correlation between B and C. Hence users A and C have more similarity and the movies liked by user A will be recommended to user C and vice versa.
 
-It has the following drwabacks
+## Shortcomings of this Algorithm
 
  This algorithm is quite time consuming as it involves calculating the similarity for each user and then calculating prediction for each similarity score. One way of handling this problem is to select only a few users (neighbors) instead of all to make predictions, i.e. instead of making predictions for all similarity values, we choose only few similarity values.There are various ways to select the neighbors:
 
@@ -105,5 +105,78 @@ It has the following drwabacks
 
 This algorithm is useful when the number of users is less. Its not effective when there are a large number of users as it will take a lot of time to compute the similarity between all user pairs. This leads us to **item-item collaborative filtering**, which is effective when the number of users is more than the items being recommended.
 
+
+## Item-Item collaborative filtering
+
+In this algorithm, we compute the similarity between each pair of items.
+
+
+<img aria-describedby="caption-attachment-44904" class="wp-image-44904 " src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/05/1skK2fqWiBF7weHU8SjuCzw.png" alt="" width="716" height="565" srcset="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/05/1skK2fqWiBF7weHU8SjuCzw.png 800w, https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/05/1skK2fqWiBF7weHU8SjuCzw-300x237.png 300w, https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/05/1skK2fqWiBF7weHU8SjuCzw-768x606.png 768w" sizes="(max-width: 716px) 100vw, 716px">
+
+So in our case we will find the similarity between each movie pair and based on that, we will recommend similar movies which are liked by the users in the past. This algorithm works similar to user-user collaborative filtering with just a little change – instead of taking the weighted sum of ratings of “user-neighbors”, we take the weighted sum of ratings of “item-neighbors”. The prediction is given by:
+
+<img class="wp-image-45419 size-full aligncenter" src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/06/Screenshot-from-2018-06-27-16-02-19.png" alt="" width="219" height="62" scale="0">
+
+Now we will find the similarity between items.
+
+
+
+<img class="aligncenter wp-image-44756 size-full" src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/05/Screenshot-from-2018-05-29-20-23-23.png" alt="" width="281" height="58" scale="0">
+
+Now, as we have the similarity between each movie and the ratings, predictions are made and based on those predictions, similar movies are recommended. Let us understand it with an example.
+
+<tbody>
+<tr>
+<td>User/Movie</td>
+<td>x1</td>
+<td>x2</td>
+<td>x3</td>
+<td>x4</td>
+<td>x5</td>
+</tr>
+<tr>
+<td style="text-align: center;">A</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td style="text-align: center;">B</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align: center;">C</td>
+<td>–</td>
+<td>1</td>
+<td>–</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Mean Item Rating</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+
+Here the mean item rating is the average of all the ratings given to a particular item (compare it with the table we saw in user-user filtering). Instead of finding the user-user similarity as we saw earlier, we find the item-item similarity.
+
+To do this, first we need to find such users who have rated those items and based on the ratings, similarity between the items is calculated. Let us find the similarity between movies (x1, x4) and (x1, x5). Common users who have rated movies x1 and x4 are A and B while the users who have rated movies x1 and x5 are also A and B.
+
+<img class="aligncenter wp-image-45426 size-full" src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/06/Screenshot-from-2018-06-27-17-37-45.png" alt="" width="698" height="87" srcset="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/06/Screenshot-from-2018-06-27-17-37-45.png 698w, https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/06/Screenshot-from-2018-06-27-17-37-45-300x37.png 300w" sizes="(max-width: 698px) 100vw, 698px">
+
+The similarity between movie x1 and x4 is more than the similarity between movie x1 and x5. So based on these similarity values, if any user searches for movie x1, they will be recommended movie x4 and vice versa. Before going further and implementing these concepts, there is a question which we must know the answer to – what will happen if a new user or a new item is added in the dataset? It is called a Cold Start. There can be two types of cold start:
+
+1. Visitor Cold Start
+2. Product Cold Start
 
 
