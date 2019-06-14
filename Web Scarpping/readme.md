@@ -1,6 +1,6 @@
 ## Project
 
-This is the Webcrawing App used to crawl French site.
+This is the Webcrawing App used to crawl French Ecom website.
 
 ## Technologyies Used
 
